@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+Fulness: @Model.Fullness  
+Happiness: @Model.Happiness  
+Meals: @Model.Meals 
+Energy: @Model.Energy
+
+<br/>
+<br/>
+<img src="https://via.placeholder.com/350x150" alt="pet picture">
+<br/><br/>
+@Model.Action
+
+<br/>
+<br/>
+
+    @if(@Model.State == "Loose" || @Model.State == "Win") {
+        @: <div style="visibility: hidden">
+    } else {
+        @: <div>
+    }
+    <form action="/" method="POST">
+        <input type="submit" name="action" value="feed" />
+    </form>
+
+    <form action="/" method="POST">
+        <input type="submit" name="action" value="play" />
+    </form>
+    <form action="/" method="POST">
+        <input type="submit" name="action" value="work" />
+    </form>
+    <form action="/" method="POST">
+        <input type="submit" name="action" value="sleep" />
+    </form>
+</div>
+
+
+@if(@Model.State == "Win" || @Model.State == "Loose") {
+        @: <div>
+    } else {
+        @: <div  style="visibility: hidden">
+    }
+
+    <form action="/" method="post">
+        <input type="submit" name="action" value="reset">
+    </form>
+</div>
